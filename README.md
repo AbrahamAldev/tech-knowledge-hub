@@ -103,7 +103,7 @@ cd tech-knowledge-hub
 # 1. Navegar a la carpeta de infraestructura del laboratorio específico
 cd articles/YYYY-MM-nombre-laboratorio/code/infra
 
-# 2. Instalar dependencias
+# 2. Instalar dependencias de infraestructura
 npm install
 
 # 3. Bootstrap inicial de CDK (solo la primera vez por cuenta/región)
@@ -128,7 +128,15 @@ cdk destroy
 
 ---
 
-## 🛡️ Estándares de Arquitectura en Producción
+## 🏛️ Architectural & Code Standards
+
+```text
+code/
+├── infra/                  # AWS CDK, Terraform, CloudFormation, K8s, Helm, Docker
+└── app/                    # Handlers, microservicios, agentes GenAI, notebooks
+```
+
+> **Full-Stack Cloud Architecture:** Our code repositories separate infrastructure from application logic (`code/infra/` and `code/app/`), ensuring seamless reproducibility whether working on Serverless APIs, Kubernetes clusters, or GenAI agentic workflows with Amazon Bedrock.
 
 Todos los blueprints y artículos en este repositorio cumplen con los siguientes estándares no negociables:
 

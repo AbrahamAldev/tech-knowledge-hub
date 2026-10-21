@@ -46,6 +46,17 @@ tech-knowledge-hub/
 
 ---
 
+## 📐 Directrices para Miembros de AWS SBG ONMEX
+
+Al preparar una propuesta de artículo o laboratorio para la comunidad, sigue rigurosamente estas reglas de desacoplamiento de capas:
+
+- 🏛️ **Infraestructura (`code/infra/`):** Los archivos de IaC van estrictamente dentro de `code/infra/` (AWS CDK, Terraform, CloudFormation, Kubernetes manifests, Helm charts, Dockerfiles de entorno).
+- ⚙️ **Lógica de Aplicación (`code/app/`):** Los scripts, microservicios, lambdas, pipelines de datos o agentes de IA van dentro de `code/app/` (Python, TypeScript, Go, Rust, LangChain, Amazon Bedrock).
+- 📦 **Gestores de Dependencias Independientes:** Cada carpeta debe incluir su archivo de dependencias correspondiente (`package.json`, `requirements.txt`, `Cargo.toml` o `go.mod`), asegurando que la infraestructura y la aplicación puedan compilar y versionarse de forma aislada.
+- 💡 **Flexibilidad:** Si un artículo es 100% conceptual o puramente de infraestructura (ej. un networking hub con Transit Gateway), la subcarpeta que no aplique (`code/app/`) puede omitirse limpiamente.
+
+---
+
 ## 📝 Ciclo de Vida de un Artículo (Content-as-Code)
 
 1. **Propuesta e Idea:** Todo artículo inicia en el backlog o tablero Kanban de contenido en Notion.

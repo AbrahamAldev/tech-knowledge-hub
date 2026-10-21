@@ -109,6 +109,12 @@ articles/YYYY-MM-[slug]/
 
 ## Implementación de Código Reproducible (`/code`)
 
+El código del artículo y taller se estructura desacoplando estrictamente infraestructura y lógica de negocio:
+
+- `code/infra/`: Aloja la definición de recursos y plantillas declarativas (AWS CDK, Terraform, CloudFormation, K8s, Helm, Docker).
+- `code/app/`: Aloja handlers, servicios backend, scripts de inferencia o agentes de IA (Python, TypeScript, Go, Rust, Agentes GenAI, Notebooks).
+- *Flexibilidad de capas:* Si un artículo es 100% conceptual o puramente de infraestructura, la subcarpeta que no aplique puede omitirse limpiamente.
+
 ### Infraestructura como Código (`code/infra/cdk`)
 
 ```typescript
