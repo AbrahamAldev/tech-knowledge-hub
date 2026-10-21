@@ -48,7 +48,7 @@ Todo el conocimiento técnico fluye bajo un pipeline continuo y verificable:
                                           v
 +-----------------------------------------------------------------------------------+
 |                               2. REPRODUCIBLE CODE                                |
-|   * Blueprints de Infraestructura como Código (AWS CDK v2 / Terraform)            |
+|   * Blueprints desacoplados por capas: /code/infra (IaC) y /code/app (Backend)    |
 |   * Repositorio GitHub inmutable: tech-knowledge-hub/articles/<slug>/code         |
 |   * Políticas de seguridad IAM de mínimo privilegio y guardrails de FinOps        |
 +-----------------------------------------------------------------------------------+
@@ -78,6 +78,7 @@ Todo el conocimiento técnico fluye bajo un pipeline continuo y verificable:
 Diseñado para que los estudiantes de **AWS Student Builder Group at ONMEX University (@awsonmex)** y la comunidad cloud puedan reproducir cada arquitectura en sus propias cuentas de AWS en menos de 5 minutos.
 
 ### 1. Prerrequisitos
+
 - [AWS CLI v2](https://aws.amazon.com/cli/) instalado y configurado con tus credenciales (`aws configure`).
 - [Node.js v20+ LTS](https://nodejs.org/) y [Python 3.11+](https://www.python.org/).
 - [AWS CDK v2](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html) instalado globalmente:
@@ -85,16 +86,22 @@ Diseñado para que los estudiantes de **AWS Student Builder Group at ONMEX Unive
   npm install -g aws-cdk
   ```
 
+---
+
 ### 2. Clonado del Repositorio
+
 ```bash
 git clone https://github.com/AbrahamAldev/tech-knowledge-hub.git
 cd tech-knowledge-hub
 ```
 
-### 3. Ejecución de un Taller (Ejemplo con AWS CDK)
+---
+
+### 3. Ejecución de un Taller (Ejemplo con AWS CDK en `code/infra`)
+
 ```bash
-# 1. Navegar a la carpeta de código del laboratorio específico
-cd articles/YYYY-MM-nombre-laboratorio/code/cdk
+# 1. Navegar a la carpeta de infraestructura del laboratorio específico
+cd articles/YYYY-MM-nombre-laboratorio/code/infra
 
 # 2. Instalar dependencias
 npm install
@@ -109,8 +116,12 @@ cdk synth
 cdk deploy
 ```
 
+---
+
 ### 4. Teardown FinOps (Limpieza de Recursos)
+
 Para evitar costes no deseados después de finalizar la sesión de taller:
+
 ```bash
 cdk destroy
 ```
@@ -137,7 +148,7 @@ Todos los blueprints y artículos en este repositorio cumplen con los siguientes
 
 - 🌐 **Perfil Oficial en AWS Builder:** [@aldebaram en AWS Builder Center](https://builder.aws.com/community/@aldebaram)
 - 🎓 **Comunidad Estudiantil (AWS SBG at ONMEX):** [@awsonmex](https://beacons.ai/awsonmex)
-- 📖 **Guía de Contribución:** Consulta [CONTRIBUTING.md](./CONTRIBUTING.md) para conocer el flujo de trabajo de Git y el checklist de Pull Requests.
+- 📖 **Guía de Contribución:** Consulta [CONTRIBUTING.md](./CONTRIBUTING.md) para conocer las normas de envío de artículos y el checklist de Pull Requests.
 
 ---
 
