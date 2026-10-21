@@ -5,6 +5,7 @@ level: "Intermediate" # Opciones: Fundamental | Intermediate | Advanced | Specia
 tags: ["aws", "architecture", "serverless", "devops", "cloud", "security"]
 canonical_aws: "https://community.aws/posts/REPLACE_WITH_AWS_BUILDER_ID"
 devto_url: "https://dev.to/abrahamaldev/REPLACE_WITH_DEVTO_SLUG"
+cover_image: "https://raw.githubusercontent.com/AbrahamAldev/tech-knowledge-hub/main/articles/YYYY-MM-slug/assets/cover.png"
 published_date: "YYYY-MM-DD"
 author: "Abraham Alonso (@AbrahamAldev)"
 community: "AWS Student Builder Group at ONMEX University"
@@ -21,15 +22,38 @@ license: "MIT"
 
 ---
 
+## 📁 Estructura del Directorio del Artículo
+
+Cada artículo debe organizarse bajo la siguiente estructura obligatoria dentro de `articles/`:
+
+```text
+articles/YYYY-MM-slug-del-articulo/
+├── README.md                   # Artículo técnico completo (este documento)
+├── assets/                     # Recursos visuales y portadas
+│   ├── cover.png               # Imagen de portada en alta resolución (16:9)
+│   └── architecture.png        # Diagramas de arquitectura exportados (opcional)
+└── code/                       # Código e Infraestructura como Código (IaC)
+    ├── cdk/                    # Stacks reproducibles de AWS CDK (TypeScript / Python)
+    └── lambda/                 # Lógica de microservicios y handlers
+```
+
+---
+
 ## [Subtítulo H2 de apertura narrativa: El fallo silencioso en producción]
 
 [Párrafos introductorios y contextuales. Plantea el escenario real en producción incluyendo **ejemplos tangibles y específicos de fallos**: códigos de error concretos como `HTTP 504 Gateway Timeout`, excepciones como `DynamoDB ProvisionedThroughputExceededException`, límites de concurrencia en Lambda (`ResourceConflictException` o `429 Too Many Requests`), o picos de latencia p99 y cómo impactan en la experiencia de usuario y costes].
 
+---
+
 ### 🎯 Dolor técnico a resolver
+
 - **Cuello de botella / Falla arquitectónica:** [Descripción precisa del cuello de botella, limitación de concurrencia o saturación de recursos que degrada el sistema].
 - **Impacto operativo y financiero:** [Consecuencia en SLA, sobrecostes no previstos en la factura de AWS o riesgo de indisponibilidad].
 
+---
+
 ### 🛠️ Stack a utilizar
+
 - **Cómputo & Orquestación:** [ej. AWS Lambda, AWS Step Functions, Amazon ECS Fargate]
 - **Datos & Persistencia:** [ej. Amazon DynamoDB, Amazon Aurora Serverless v2, Amazon S3]
 - **Integración & Mensajería:** [ej. Amazon EventBridge, Amazon SQS, Amazon SNS]
@@ -127,10 +151,14 @@ export class ProductionStack extends cdk.Stack {
 ## 🛡️ Preocupaciones de Nivel de Producción
 
 ### 💰 FinOps & Control de Costes
+
 - **Patrón On-Demand vs Provisioned:** Implementar `PAY_PER_REQUEST` en DynamoDB y auto-escalado con concurrency limits en Lambda para mitigar riesgos de facturación descontrolada por ataques de denegación de monedero (Denial of Wallet).
 - **TTL y Lifecycle Policies:** Configurar Time-To-Live en registros temporales para evitar acumulación de almacenamiento no indexado.
 
+---
+
 ### 🔒 Seguridad IAM: Principio de Mínimo Privilegio
+
 - Ninguna política debe incluir comodines `Action: "*"` o `Resource: "*"`.
 - Cada rol de ejecución Lambda debe limitar las acciones exclusivamente a las APIs requeridas (ej. `dynamodb:PutItem`, `dynamodb:UpdateItem`) acotadas al ARN estricto de la tabla.
 
@@ -151,7 +179,10 @@ export class ProductionStack extends cdk.Stack {
 }
 ```
 
+---
+
 ### ⚡ Idempotencia & Manejo de Reintentos
+
 - Implementar **claves de idempotencia** mediante encabezados `Idempotency-Key` almacenados en DynamoDB con bloqueo condicional (`attribute_not_exists(pk)`) para evitar transacciones duplicadas en reintentos de red.
 
 ---
@@ -173,4 +204,5 @@ A modern SaaS product dark mode illustration of an event-driven AWS cloud archit
 ---
 
 ## 🏷️ Tags
+
 `#aws` `#architecture` `#serverless` `#devops` `#cloud` `#security`
