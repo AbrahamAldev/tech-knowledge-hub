@@ -63,14 +63,13 @@ Todo el conocimiento técnico fluye bajo un pipeline continuo y verificable:
 
 ---
 
-## 📚 Índice de Artículos & Blueprints
+## 📚 Published Technical Articles
 
-| # | Artículo / Deep-Dive | Nivel | AWS Builder Center | Dev.to (ES) | Código / IaC | Estado |
-| :-: | :--- | :---: | :---: | :---: | :---: | :---: |
-| 00 | *Template Oficial Content-as-Code* | All | [Estructura Oficial](./templates/article-template.md) | [Guía](./templates/article-template.md) | [Blueprint](./templates/article-template.md) | 🟢 Base |
-| 01 | *Event-Driven Resilient Ingestion with EventBridge & Lambda* | Intermediate | *Próximamente* | *Próximamente* | [Stack CDK](./articles/) | ✍️ En progreso |
-| 02 | *DynamoDB Single-Table Design: Zero Throttling at Scale* | Advanced | *Próximamente* | *Próximamente* | [Stack CDK](./articles/) | 💡 Backlog |
-| 03 | *Autonomous Multi-Agent Infrastructures on AWS ECS & Bedrock* | Specialist | *Próximamente* | *Próximamente* | [Terraform](./articles/) | 💡 Backlog |
+<!-- ARTICLES-START -->
+| Date | Title & Architectural Pain Point | Level | Primary Stack | AWS (EN) | Dev.to (ES) | Lab Code |
+| :---: | :--- | :---: | :--- | :---: | :---: | :---: |
+| `2026-10` | *Upcoming First Article* | `Level 300` | `AWS CDK` `Python` | Coming Soon | Coming Soon | [`/articles`](./articles/) |
+<!-- ARTICLES-END -->
 
 ---
 
