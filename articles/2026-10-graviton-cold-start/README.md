@@ -21,10 +21,14 @@ community: "AWS Student Builder Group at ONMEX University"
 ---
 
 ## 🎯 Dolor técnico a resolver
+
 - **Picos de latencia p99:** Invocaciones frías superando los 1200ms en cargas intermitentes de APIs críticas.
 - **Eficiencia de costes FinOps:** Sobrecostes por sobredimensionamiento de memoria RAM únicamente para compensar tiempos de arranque de CPU.
 
+---
+
 ## 🛠️ Stack a utilizar
+
 - **Cómputo:** AWS Lambda (Arquitectura ARM64 / Graviton)
 - **Runtime:** Node.js 20.x / Python 3.11
 - **IaC:** AWS CDK v2 (TypeScript)
