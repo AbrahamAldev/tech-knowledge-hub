@@ -1,6 +1,7 @@
 name: Auto Update README Index
 
 on:
+  workflow_dispatch: # 👈 Habilita el botón manual "Run workflow"
   push:
     branches: [ "main" ]
     paths:
