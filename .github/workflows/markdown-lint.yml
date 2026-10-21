@@ -1,0 +1,24 @@
+name: Markdown Quality Check
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "articles/**"
+      - "*.md"
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Lint Markdown files
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: |
+            **/*.md
+            !node_modules
