@@ -4,11 +4,20 @@
 
 **Curated technical content vault, IaC blueprints, and reproducible labs by Abraham Alonso.**
 
-[![AWS Community Builder](https://img.shields.io/badge/AWS_Community_Builder-Applicant_2026-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)](https://community.aws)
-[![Dev.to](https://img.shields.io/badge/dev.to-AbrahamAldev-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white)](https://dev.to/abrahamaldev)
-[![AWS SBG ONMEX](https://img.shields.io/badge/Community-AWS_SBG_ONMEX-232F3E?style=for-the-badge&logo=amazon&logoColor=FF9900)](https://github.com/AbrahamAldev/tech-knowledge-hub)
+<!-- Nivel 1: Credenciales y Liderazgo Oficial en AWS -->
+[![AWS SBG Leader](https://img.shields.io/badge/AWS_SBG_Leader-@aldebaram-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)](https://builder.aws.com/community/@aldebaram)
+[![AWS SBG ONMEX](https://img.shields.io/badge/Community-AWS_SBG_ONMEX-232F3E?style=for-the-badge&logo=amazon&logoColor=FF9900)](https://beacons.ai/awsonmex)
 [![Founder Iztack](https://img.shields.io/badge/Founder-Iztack-6366F1?style=for-the-badge)](https://iztack.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](./LICENSE)
+
+<br/>
+
+<!-- Nivel 2: Autoría Técnica Directa & Hub Universal -->
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-abrahamaldev-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/abrahamaldev)
+[![Dev.to](https://img.shields.io/badge/dev.to-AbrahamAldev-0A0A0A?style=flat-square&logo=devdotto&logoColor=white)](https://dev.to/abrahamaldev)
+[![X / Twitter](https://img.shields.io/badge/X-@abrahamaldev-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/abrahamaldev)
+[![GitHub](https://img.shields.io/badge/GitHub-AbrahamAldev-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/AbrahamAldev)
+[![All Links](https://img.shields.io/badge/All_Links-beacons.ai%2Fabrahamaldev-7C3AED?style=flat-square&logo=linktree&logoColor=white)](https://beacons.ai/abrahamaldev)
 
 <br/>
 
@@ -20,7 +29,7 @@
 
 ## 🏛️ Filosofía Content-as-Code
 
-Este repositorio implementa el patrón **Content-as-Code (Decoupled Headless CMS)** para el ecosistema técnico de **Abraham Alonso (@AbrahamAldev)** y las actividades del **AWS Student Builder Group at ONMEX University**.
+Este repositorio implementa el patrón **Content-as-Code (Decoupled Headless CMS)** para el ecosistema técnico de **Abraham Alonso ([@AbrahamAldev](https://beacons.ai/abrahamaldev) / [@aldebaram en AWS](https://builder.aws.com/community/@aldebaram))** y las actividades formativas del **AWS Student Builder Group at ONMEX University ([@awsonmex](https://beacons.ai/awsonmex))**.
 
 Todo el conocimiento técnico fluye bajo un pipeline continuo y verificable:
 
@@ -67,7 +76,7 @@ Todo el conocimiento técnico fluye bajo un pipeline continuo y verificable:
 
 ## 🚀 Talleres Hands-on: Guía de Clonado y Despliegue
 
-Diseñado para que los estudiantes de **AWS Student Builder Group at ONMEX University** y la comunidad cloud puedan reproducir cada arquitectura en sus propias cuentas de AWS en menos de 5 minutos.
+Diseñado para que los estudiantes de **AWS Student Builder Group at ONMEX University (@awsonmex)** y la comunidad cloud puedan reproducir cada arquitectura en sus propias cuentas de AWS en menos de 5 minutos.
 
 ### 1. Prerrequisitos
 - [AWS CLI v2](https://aws.amazon.com/cli/) instalado y configurado con tus credenciales (`aws configure`).
@@ -125,16 +134,18 @@ Todos los blueprints y artículos en este repositorio cumplen con los siguientes
 
 ---
 
-## 🤝 Contribución y Comunidad
+## 🤝 Comunidad y Canales Oficiales
 
-¿Eres miembro de **AWS Student Builder Group at ONMEX University** o parte de la comunidad de desarrolladores y quieres aportar un artículo o blueprint?
-
-Consulta nuestra [Guía de Contribución](./CONTRIBUTING.md) para conocer las normas de estilo, el modelo de ramas de Git y el checklist de Pull Requests.
+- 🌐 **Perfil Oficial en AWS Builder:** [@aldebaram en AWS Builder Center](https://builder.aws.com/community/@aldebaram)
+- 🎓 **Comunidad Estudiantil (AWS SBG at ONMEX):** [@awsonmex](https://beacons.ai/awsonmex)
+- 📖 **Guía de Contribución:** Consulta [CONTRIBUTING.md](./CONTRIBUTING.md) para conocer el flujo de trabajo de Git y el checklist de Pull Requests.
 
 ---
 
 <div align="center">
 
-Maintained by Abraham Alonso — Cloud & AI Solutions Architect • GenAI • Founder @Iztack • AWS SBG Leader at ONMEX
+Maintained by Abraham Alonso — Cloud & AI Solutions Architect • GenAI • Founder @Iztack • AWS SBG Leader at ONMEX  
+[![AWS Builder](https://img.shields.io/badge/AWS_Builder-@aldebaram-FF9900?style=flat-square&logo=amazonaws&logoColor=white)](https://builder.aws.com/community/@aldebaram)
+[![Beacons](https://img.shields.io/badge/All_Social_Profiles-beacons.ai%2Fabrahamaldev-7C3AED?style=flat-square)](https://beacons.ai/abrahamaldev)
 
 </div>
