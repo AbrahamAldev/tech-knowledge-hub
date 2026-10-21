@@ -1,6 +1,7 @@
 name: Markdown Quality Check
 
 on:
+  workflow_dispatch: # 👈 Habilita el botón manual "Run workflow"
   push:
     branches: [ "main" ]
     paths:
