@@ -1,0 +1,92 @@
+name: Auto Update README Index
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "articles/**"
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Regenerate Articles Table
+        run: |
+          python - << 'EOF'
+          import os
+          import re
+          import yaml
+
+          articles_dir = "articles"
+          entries = []
+
+          if os.path.exists(articles_dir):
+              for folder in sorted(os.listdir(articles_dir), reverse=True):
+                  folder_path = os.path.join(articles_dir, folder)
+                  readme_path = os.path.join(folder_path, "README.md")
+                  if os.path.isdir(folder_path) and os.path.exists(readme_path):
+                      with open(readme_path, "r", encoding="utf-8") as f:
+                          content = f.read()
+                      match = re.search(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
+                      if match:
+                          try:
+                              data = yaml.safe_load(match.group(1))
+                              date = data.get("published_date", folder[:7])
+                              title = data.get("title", folder)
+                              level = data.get("level", "Level 200")
+                              tags = " ".join([f"`{t}`" for t in data.get("tags", [])[:3]])
+                              aws_url = data.get("canonical_aws", "")
+                              devto_url = data.get("devto_url", "")
+                              aws_link = f"[Read]({aws_url})" if aws_url else "Coming Soon"
+                              devto_link = f"[Leer]({devto_url})" if devto_url else "Coming Soon"
+                              code_link = f"[`/code`](./articles/{folder}/code)" if os.path.exists(os.path.join(folder_path, "code")) else f"[`/article`](./articles/{folder})"
+                              entries.append(f"| `{date}` | **{title}** | `{level}` | {tags} | {aws_link} | {devto_link} | {code_link} |")
+                          except Exception as e:
+                              print(f"Error parsing {readme_path}: {e}")
+
+          table_header = "| Date | Title & Architectural Pain Point | Level | Primary Stack | AWS (EN) | Dev.to (ES) | Lab Code |\n| :---: | :--- | :---: | :--- | :---: | :---: | :---: |"
+          table_body = "\n".join(entries) if entries else "| - | *No articles published yet* | - | - | - | - | - |"
+          new_table = f"{table_header}\n{table_body}"
+
+          with open("README.md", "r", encoding="utf-8") as f:
+              readme = f.read()
+
+          pattern = r"<!-- ARTICLES-START -->.*?<!-- ARTICLES-END -->"
+          replacement = f"<!-- ARTICLES-START -->\n{new_table}\n<!-- ARTICLES-END -->"
+          
+          if re.search(pattern, readme, re.DOTALL):
+              updated_readme = re.sub(pattern, replacement, readme, flags=re.DOTALL)
+              with open("README.md", "w", encoding="utf-8") as f:
+                  f.write(updated_readme)
+              print("README table updated successfully.")
+          else:
+              print("Markers <!-- ARTICLES-START --> and <!-- ARTICLES-END --> not found in README.md.")
+          EOF
+
+      - name: Commit & Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --staged --quiet; then
+            echo "No changes in README.md"
+          else
+            git commit -m "chore(readme): auto-update published articles index [skip ci]"
+            git push
+          fi
