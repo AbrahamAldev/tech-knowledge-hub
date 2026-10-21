@@ -68,7 +68,7 @@ Todo el conocimiento técnico fluye bajo un pipeline continuo y verificable:
 <!-- ARTICLES-START -->
 | Date | Title & Architectural Pain Point | Level | Primary Stack | AWS (EN) | Dev.to (ES) | Lab Code |
 | :---: | :--- | :---: | :--- | :---: | :---: | :---: |
-| `2026-10` | *Upcoming First Article* | `Level 300` | `AWS CDK` `Python` | Coming Soon | Coming Soon | [`/articles`](./articles/) |
+| - | *No articles published yet* | - | - | - | - | - |
 <!-- ARTICLES-END -->
 
 ---
