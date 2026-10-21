@@ -22,19 +22,19 @@ license: "MIT"
 
 ---
 
-## 📁 Estructura del Directorio del Artículo
+## 📁 Estructura del Directorio del Artículo (Convención A: `infra/` + `app/`)
 
-Cada artículo debe organizarse bajo la siguiente estructura obligatoria dentro de `articles/`:
+Cada artículo debe organizarse bajo la siguiente arquitectura desacoplada por capas funcionales dentro de `articles/`:
 
 ```text
-articles/YYYY-MM-slug-del-articulo/
-├── README.md                   # Artículo técnico completo (este documento)
-├── assets/                     # Recursos visuales y portadas
-│   ├── cover.png               # Imagen de portada en alta resolución (16:9)
-│   └── architecture.png        # Diagramas de arquitectura exportados (opcional)
-└── code/                       # Código e Infraestructura como Código (IaC)
-    ├── cdk/                    # Stacks reproducibles de AWS CDK (TypeScript / Python)
-    └── lambda/                 # Lógica de microservicios y handlers
+articles/YYYY-MM-[slug]/
+├── README.md                   # Artículo técnico completo (bilingüe / metadatos)
+├── assets/                     # Recursos visuales y diagramas
+│   ├── cover.png               # Portada en alta resolución (16:9 / SaaS dark-mode)
+│   └── architecture.png        # Diagramas de arquitectura (Draw.io / ASCII exportado)
+└── code/                       # Código reproducible del artículo
+    ├── infra/                  # Toda la infraestructura (AWS CDK, Terraform, CloudFormation, K8s, Helm, Docker)
+    └── app/                    # Toda la lógica de negocio (Python, TypeScript, Go, Rust, Agentes GenAI, Notebooks)
 ```
 
 ---
@@ -57,7 +57,8 @@ articles/YYYY-MM-slug-del-articulo/
 - **Cómputo & Orquestación:** [ej. AWS Lambda, AWS Step Functions, Amazon ECS Fargate]
 - **Datos & Persistencia:** [ej. Amazon DynamoDB, Amazon Aurora Serverless v2, Amazon S3]
 - **Integración & Mensajería:** [ej. Amazon EventBridge, Amazon SQS, Amazon SNS]
-- **Infraestructura como Código (IaC):** [AWS CDK v2 (TypeScript/Python) o Terraform]
+- **Infraestructura como Código (IaC):** [AWS CDK v2 (TypeScript/Python) o Terraform en `/infra`]
+- **Lógica de Aplicación / Agentes:** [Python / TypeScript / Agentes GenAI en `/app`]
 - **Seguridad & Gobernanza:** [AWS IAM, AWS Secrets Manager, AWS KMS]
 
 ---
@@ -108,7 +109,7 @@ articles/YYYY-MM-slug-del-articulo/
 
 ## Implementación de Código Reproducible (`/code`)
 
-### Infraestructura como Código (AWS CDK TypeScript)
+### Infraestructura como Código (`code/infra/cdk`)
 
 ```typescript
 import * as cdk from 'aws-cdk-lib';
@@ -130,17 +131,17 @@ export class ProductionStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.RETAIN,
     });
 
-    // 2. Función Lambda con principio de mínimo privilegio
+    // 2. Función Lambda consumiendo código desacoplado desde code/app
     const handler = new lambda.Function(this, 'OrderHandler', {
       runtime: lambda.Runtime.NODEJS_20_X,
       handler: 'index.handler',
-      code: lambda.Code.fromAsset('code/lambda'),
+      code: lambda.Code.fromAsset('code/app'),
       environment: {
         TABLE_NAME: table.tableName,
       },
     });
 
-    // 3. Concesión estricta de permisos IAM
+    // 3. Concesión estricta de permisos IAM (Principio de mínimo privilegio)
     table.grantReadWriteData(handler);
   }
 }
