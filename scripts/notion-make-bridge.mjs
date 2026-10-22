@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 /**
  * Notion Free -> Make Zero-Polling Bridge
- * Queries the Notion Content Pipeline database for articles marked ready for distribution
- * ("🚀 Disparar Automatización" or "Trigger Automation") that have not been cross-posted yet,
+ * Queries the Notion Content Pipeline database for articles in state
+ * "🚀 Disparar Automatización" that have not been distributed yet,
  * and triggers the Make Custom Webhook with ?page_id=<id>.
- *
- * This bypasses Notion Free's lack of native Webhook Automations AND saves 100% of Make Free's
- * polling operations by running on GitHub Actions free tier.
  */
 
 const NOTION_TOKEN = process.env.NOTION_TOKEN;
@@ -28,16 +25,8 @@ async function queryReadyArticles() {
     filter: {
       and: [
         {
-          or: [
-            {
-              property: "Status",
-              select: { equals: "🚀 Disparar Automatización" },
-            },
-            {
-              property: "Status",
-              select: { equals: "Trigger Automation" },
-            },
-          ],
+          property: "Status",
+          select: { equals: "🚀 Disparar Automatización" },
         },
         {
           property: "Canonical URL",
@@ -93,11 +82,11 @@ async function triggerMakeWebhook(page) {
 }
 
 async function main() {
-  console.log("🔍 Consultando Notion Content Pipeline por artículos listos para distribuir...");
+  console.log("🔍 Consultando Notion Content Pipeline por artículos en '🚀 Disparar Automatización'...");
   const pages = await queryReadyArticles();
 
   if (pages.length === 0) {
-    console.log("✨ No hay artículos pendientes en estado '🚀 Disparar Automatización' / 'Trigger Automation'. 0 operaciones consumidas en Make.");
+    console.log("✨ No hay artículos pendientes en '🚀 Disparar Automatización'. 0 operaciones consumidas en Make.");
     return;
   }
 
