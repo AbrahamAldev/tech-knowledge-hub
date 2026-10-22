@@ -1,0 +1,31 @@
+name: Notion Free to Make Zero-Polling Bridge
+
+on:
+  schedule:
+    # Revisa Notion cada 15 minutos sin consumir operaciones en Make
+    - cron: "*/15 * * * *"
+  workflow_dispatch: # Permite dispararlo manualmente desde la pestaña Actions
+  push:
+    branches:
+      - main
+    paths:
+      - "articles/**"
+
+jobs:
+  check-notion-and-trigger-make:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Query Notion & Trigger Make Webhook if Ready
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: "0d7558e3408a4c3db06c5aada7b9d9c1"
+          MAKE_WEBHOOK_URL: "https://hook.us2.make.com/ms2v5jah3lz9woirqqjon395y6ckst4n"
+        run: node scripts/notion-make-bridge.mjs
