@@ -5,9 +5,9 @@ level: "Intermediate" # Opciones: Fundamental | Intermediate | Advanced | Specia
 tags: ["aws", "architecture", "serverless", "devops", "cloud", "security"]
 canonical_aws: "https://community.aws/posts/REPLACE_WITH_AWS_BUILDER_ID"
 devto_url: "https://dev.to/abrahamaldev/REPLACE_WITH_DEVTO_SLUG"
-cover_image_16x9: "https://raw.githubusercontent.com/AbrahamAldev/tech-knowledge-hub/main/articles/YYYY-MM-slug/assets/cover-16x9.png"
-cover_image_1x1: "https://raw.githubusercontent.com/AbrahamAldev/tech-knowledge-hub/main/articles/YYYY-MM-slug/assets/cover-1x1.png"
-cover_image_3x4: "https://raw.githubusercontent.com/AbrahamAldev/tech-knowledge-hub/main/articles/YYYY-MM-slug/assets/cover-3x4.png"
+cover_image_16x9: "https://raw.githubusercontent.com/AbrahamAldev/tech-knowledge-hub/main/articles/YYYY-MM-slug/assets/abrahamaldev-cover-16x9.png"
+cover_image_1x1: "https://raw.githubusercontent.com/AbrahamAldev/tech-knowledge-hub/main/articles/YYYY-MM-slug/assets/abrahamaldev-cover-1x1.png"
+cover_image_3x4: "https://raw.githubusercontent.com/AbrahamAldev/tech-knowledge-hub/main/articles/YYYY-MM-slug/assets/abrahamaldev-cover-3x4.png"
 published_date: "YYYY-MM-DD"
 author: "Abraham Alonso (@AbrahamAldev)"
 community: "AWS Student Builder Group at ONMEX University"
@@ -30,15 +30,15 @@ Cada artículo debe organizarse bajo la siguiente arquitectura desacoplada por c
 
 ```text
 articles/YYYY-MM-[slug]/
-├── README.md                   # Artículo técnico completo (bilingüe / metadatos)
-├── assets/                     # Recursos visuales y portadas multiplataforma
-│   ├── cover-16x9.png          # Portada horizontal (16:9 / AWS Builder Center & Dev.to)
-│   ├── cover-1x1.png           # Portada cuadrada (1:1 / Feeds de LinkedIn, X e Instagram)
-│   ├── cover-3x4.png           # Portada vertical (3:4 / Móvil, Carruseles e Historias)
-│   └── architecture.png        # Diagramas de arquitectura exportados (opcional)
-└── code/                       # Código reproducible del artículo
-    ├── infra/                  # Toda la infraestructura (AWS CDK, Terraform, CloudFormation, K8s, Helm, Docker)
-    └── app/                    # Toda la lógica de negocio (Python, TypeScript, Go, Rust, Agentes GenAI, Notebooks)
+├── README.md                           # Artículo técnico completo (bilingüe / metadatos)
+├── assets/                             # Recursos visuales y portadas multiplataforma
+│   ├── abrahamaldev-cover-16x9.png     # Portada panorámica (16:9 / AWS Builder Center y Dev.to)
+│   ├── abrahamaldev-cover-1x1.png      # Portada cuadrada (1:1 / Feeds de LinkedIn, Buffer/X, Instagram y Facebook)
+│   ├── abrahamaldev-cover-3x4.png      # Portada vertical (3:4 / Móvil, Carruseles e Historias)
+│   └── architecture.png                # Diagramas de arquitectura exportados (opcional)
+└── code/                               # Código reproducible del artículo
+    ├── infra/                          # Toda la infraestructura (AWS CDK, Terraform, CloudFormation, K8s, Helm, Docker)
+    └── app/                            # Toda la lógica de negocio (Python, TypeScript, Go, Rust, Agentes GenAI, Notebooks)
 ```
 
 ---
