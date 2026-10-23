@@ -68,6 +68,7 @@ Todo el conocimiento técnico fluye bajo un pipeline continuo y verificable:
 <!-- ARTICLES-START -->
 | Date | Title & Architectural Pain Point | Level | Primary Stack | AWS (EN) | Dev.to (ES) | Lab Code |
 | :---: | :--- | :---: | :--- | :---: | :---: | :---: |
+| `2026-10-23` | **Amazon S3 Express One Zone 🚀 con AWS Lambda: Caching Vectorial de Milisegundo Único** | `Level 300` | `aws` `serverless` `storage` | [Read](https://builder.aws.com/community/@aldebaram) | [Leer](https://dev.to/abrahamaldev) | [`/article`](./articles/2026-10-s3-express-one-zone-lambda-vector-cache) |
 | `2026-10-21` | **⚡ AWS Lambda on Graviton3: 35% Cold Start Latency Reduction** | `Level 300` | `aws` `serverless` `graviton` | [Read](https://builder.aws.com/community/@aldebaram) | [Leer](https://dev.to/abrahamaldev) | [`/article`](./articles/2026-10-graviton-cold-start) |
 <!-- ARTICLES-END -->
 
